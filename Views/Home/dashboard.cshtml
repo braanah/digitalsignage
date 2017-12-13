@@ -1,0 +1,102 @@
+﻿
+<div class="tv-background" style="background-image:url({{vm.designDetails.coverPhotoLink}})"></div>
+<div class="background-black"></div>
+<div class="tv animated fadeIn">
+<div class="event-list pull-left"> 
+    <div class="background" style="background-image:url({{vm.designDetails.coverPhotoLink}})"></div>
+    <div class="background-black"></div>
+        <div class="list" ng-if="!!vm.eventList" ng-repeat="event in vm.eventList | orderBy: 'startDateTimeUtc'">
+            <div class="slide">
+                <h2 class="pull-left">{{event.startDateTimeUtc |date:'dd'}}</h2>
+                <div class="pull-left">
+                    <h3>{{event.eventName}}</h3>
+                    <span>{{event.location}}</span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+</div>
+
+    <div class="event-tiles pull-right">
+
+        <div class="now pull-left">
+            <div ng-if="!vm.todaysEventsRandomized.length">
+                <h1>Coming Up</h1>
+            </div>
+            <div ng-if="!!vm.todaysEventsRandomized.length">
+                <h1>Happening Now</h1>
+            </div>
+            <div class="event-slider">
+
+                <ul rn-carousel rn-carousel-auto-slide class="image" style="height: 900px;">
+                    <li ng-repeat="event in vm.todaysEventsRandomized track by $index">
+                        <div class="card" >
+                            <div class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
+                            <div class="card-header ch-alt">
+                                <h2 style="color: {{vm.designDetails.backgroundColor}}">{{event.eventName}}</h2>
+                                <h3>{{event.organizationName}}</h3>
+                            </div>
+                            <div class="card-body card-padding">
+                                <div class="event-description">
+                                    {{event.description}}                             
+                                </div>
+                                <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
+                                    <i class="md md-location-on"></i> {{event.location}} ending at {{event.endDateTimeUtc |date: 'h:mm a'}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <span ng-show="!vm.todaysEventsRandomized.length">
+                    No Events Today
+                </span> -->
+            </div>
+        </div>
+        <div class="later pull-left">
+            <div>
+                <h1>This Week</h1>
+            </div>
+            <div class="random-four">
+                <div ng-if="!!vm.thisWeekRandomized" class="card pull-left" ng-repeat="event in vm.thisWeekRandomized">
+                    <div ng-show="event.hasCoverImage" class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
+                    <div ng-hide="event.hasCoverImage" class="img-wrapper no-image" style="background-image:url({{vm.designDetails.coverPhotoLink}})">
+                        <div class="text-wrapper">
+                            <h2>{{event.eventName}}</h2>
+                        </div>
+                    </div>
+                    <div class="card-body card-padding">
+                        <h2 style="color: {{vm.designDetails.backgroundColor}}">{{event.eventName}}</h2>
+                        <div class="date-time">
+                            {{event.startDateTimeUtc| date: 'EEE MMM dd, yyyy'}}
+                        </div>
+                        <div class="location" style="color: {{vm.designDetails.backgroundColor}}">
+                            <i class="md md-location-on"></i> {{event.location}}
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>   
+            <div class="app-ad">
+                <div class="download-text"></div>
+                <div class="phone">
+                    <div class="bg-img" style="background-image:url({{vm.designDetails.coverPhotoLink}})">
+                        <div class="logo" style="background-image:url({{vm.designDetails.logoPhotoLink}}); background-color: {{vm.designDetails.navBarColor}};"></div>
+                    </div>
+                </div>
+                <div class="qr-codes">
+                    <div class="ios">
+                        <div class="qr"><div id="qrcode-ios"></div></div>
+                        <div class="store-img"></div>
+                    </div>
+                    <div class="android">
+                        <div class="qr"><div id="qrcode-and"></div></div>
+                        <div class="store-img"></div>                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

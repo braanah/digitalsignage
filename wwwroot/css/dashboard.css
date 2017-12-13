@@ -1,0 +1,297 @@
+.login {
+  background: #463243;
+  background: -moz-linear-gradient(45deg, #463243 1%, #57bdd9 100%);
+  background: -webkit-linear-gradient(45deg, #463243 1%, #57bdd9 100%);
+  background: linear-gradient(45deg, #463243 1%, #57bdd9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#463243', endColorstr='#57bdd9', GradientType=1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.login h1 {
+  font-weight: 100;
+  color: #fff;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 400px 0 30px 0;
+}
+.login input {
+  width: 800px;
+  height: 100px;
+  background: transparent;
+  border: 3px solid #fff;
+  color: #fff;
+  padding: 20px;
+  font-size: 60px;
+  font-weight: 100;
+  text-align: center;
+  margin-left: 50%;
+  position: relative;
+  left: -400px;
+}
+.truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+body {
+  background: #cccccc;
+  width: 1920px;
+  height: 1080px;
+  padding: 0;
+  margin: 0;
+}
+.tv-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8px);
+  position: fixed;
+  width: 1920px;
+  height: 1080px;
+}
+.background-black {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 1920px;
+  height: 1080px;
+  position: fixed;
+}
+.tv {
+  width: 1920px;
+  height: 1080px;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+.tv .event-list {
+  width: 500px;
+  position: relative;
+}
+.tv .event-list .background {
+  width: 500px;
+  height: 100%;
+  position: fixed;
+  filter: blur(15px);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.tv .event-list .background-black {
+  width: 500px;
+  height: 100%;
+}
+.tv .event-list .list {
+  position: relative;
+}
+.tv .event-list .list .slick-slide {
+  margin: 20px 40px;
+  color: #ffffff;
+}
+.tv .event-list .list .slick-slide:first-child {
+  margin-top: 50px;
+}
+.tv .event-list .list .slick-slide:last-child {
+  margin-bottom: 50px;
+}
+.tv .event-list .list .slick-slide h2 {
+  color: #ffffff;
+  font-size: 54px;
+  font-weight: 900;
+  margin: 0 15px 0 0;
+}
+.tv .event-list .list .slick-slide h3 {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 300;
+  margin: 3px 0 3px 0;
+  width: 340px;
+  line-height: 28px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tv .event-tiles {
+  width: 1370px;
+  margin-left: 50px;
+}
+.tv .event-tiles h1 {
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.tv .event-tiles .event-slider {
+  margin-right: 30px;
+  width: 700px;
+}
+.tv .event-tiles .event-slider .img-wrapper {
+  overflow: hidden;
+  height: 430px;
+  background-size: cover;
+}
+.tv .event-tiles .event-slider h2 {
+  font-size: 42px;
+  font-weight: 100;
+}
+.tv .event-tiles .event-slider h3 {
+  font-size: 18px;
+  color: #5e5e5e;
+}
+.tv .event-tiles .event-slider .event-location-date {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.tv .event-tiles .event-slider .slick-dots {
+  list-style: none;
+  margin: -20px 0 0 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+}
+.tv .event-tiles .event-slider .slick-dots li {
+  width: 100%;
+  height: 5px;
+  margin: 0;
+}
+.tv .event-tiles .event-slider .slick-dots li button {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  border: 1px solid #ffffff;
+  text-indent: -9999em;
+  height: 5px;
+}
+.tv .event-tiles .event-slider .slick-dots li.slick-active button {
+  background-color: #ffffff;
+}
+.tv .event-tiles .later {
+  width: 620px;
+}
+.tv .event-tiles .later .random-four {
+  height: 582px;
+}
+.tv .event-tiles .later .card {
+  width: 270px;
+}
+.tv .event-tiles .later .card #qrcode {
+  width: 160px;
+  height: 160px;
+  margin-top: 15px;
+}
+.tv .event-tiles .later .card:first-child,
+.tv .event-tiles .later .card:nth-child(3) {
+  margin-right: 30px;
+}
+.tv .event-tiles .later .card .img-wrapper {
+  overflow: hidden;
+  height: 155px;
+  background-size: cover;
+}
+.tv .event-tiles .later .card .img-wrapper.no-image .text-wrapper {
+  background: rgba(0, 0, 0, 0.7);
+  margin-top: -20px;
+  height: 100%;
+}
+.tv .event-tiles .later .card .img-wrapper.no-image h2 {
+  font-size: 60px;
+  font-weight: 900;
+  transform: rotate(-20deg);
+  opacity: 0.2;
+  color: #fff;
+}
+.tv .event-tiles .later .card .card-padding {
+  padding: 15px;
+}
+.tv .event-tiles .later .card .card-padding h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 19px;
+  font-weight: 100;
+  margin-bottom: 5px;
+  line-height: 24px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tv .event-tiles .later .card .card-padding .date-time {
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+.tv .event-tiles .later .card .card-padding .location {
+  font-weight: 600;
+}
+.tv .event-tiles .later .app-ad .download-text {
+  background-image: url(../images/download.png);
+  background-repeat: no-repeat;
+  width: 274px;
+  height: 154px;
+  float: left;
+}
+.tv .event-tiles .later .app-ad .qr-codes {
+  margin-top: 35px;
+  width: 270px;
+  float: left;
+}
+.tv .event-tiles .later .app-ad .qr-codes > div {
+  width: 125px;
+}
+.tv .event-tiles .later .app-ad .qr-codes .qr {
+  width: 125px;
+  height: 125px;
+  padding: 5px;
+  background: #fff;
+}
+.tv .event-tiles .later .app-ad .qr-codes .qr img {
+  width: 115px;
+  height: 115px;
+}
+.tv .event-tiles .later .app-ad .qr-codes .store-img {
+  margin-top: 15px;
+}
+.tv .event-tiles .later .app-ad .qr-codes .ios {
+  float: left;
+}
+.tv .event-tiles .later .app-ad .qr-codes .ios .store-img {
+  width: 122px;
+  height: 36px;
+  background-image: url(../images/iosStore.png);
+  background-repeat: no-repeat;
+}
+.tv .event-tiles .later .app-ad .qr-codes .android {
+  float: right;
+}
+.tv .event-tiles .later .app-ad .qr-codes .android .store-img {
+  width: 121px;
+  height: 36px;
+  background-image: url(../images/googleStore.png);
+  background-repeat: no-repeat;
+}
+.tv .event-tiles .later .app-ad .phone {
+  width: 309px;
+  height: 363px;
+  margin-top: 36px;
+  background-image: url(../images/iphone.png);
+  background-repeat: no-repeat;
+  float: right;
+  margin-right: 20px;
+}
+.tv .event-tiles .later .app-ad .phone .bg-img {
+  width: 258px;
+  height: 287px;
+  margin-top: 76px;
+  margin-left: 27px;
+  border-radius: 2px;
+  background-size: cover;
+  background-position-x: center;
+}
+.tv .event-tiles .later .app-ad .phone .bg-img .logo {
+  width: 258px;
+  height: 70px;
+  background-size: 80%;
+  background-position-x: center;
+  background-position-y: center;
+  top: 70px;
+  position: relative;
+  opacity: 0.9;
+  background-repeat: no-repeat;
+}

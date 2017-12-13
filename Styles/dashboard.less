@@ -1,0 +1,359 @@
+@width: 1920px;
+@height: 1080px;
+
+.login{
+    background: #463243;
+    background: -moz-linear-gradient(45deg, #463243 1%, #57bdd9 100%);
+    background: -webkit-linear-gradient(45deg, #463243 1%,#57bdd9 100%);
+    background: linear-gradient(45deg, #463243 1%,#57bdd9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#463243', endColorstr='#57bdd9',GradientType=1 );
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    h1{
+        font-weight: 100;
+        color: #fff;
+        text-transform: capitalize;
+        text-align: center;
+        margin: 400px 0 30px 0;
+    }
+
+    input{
+        width: 800px;
+        height: 100px;
+        background: transparent;
+        border: 3px solid #fff;
+        color: #fff;
+        padding: 20px;
+        font-size: 60px;
+        font-weight: 100;
+        text-align: center;
+        margin-left: 50%;
+        position: relative;
+        left: -400px;
+    }
+        
+}
+
+.truncate{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+body{
+    background: #cccccc;
+    width: @width;
+    height: @height;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.tv-background{
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    position: fixed;
+    width: @width;
+    height: @height;
+}
+
+.background-black{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: @width;
+    height: @height;
+    position: fixed;
+}
+
+.tv{
+    width: @width;
+    height: @height;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+
+    .event-list{
+        width: 500px;
+        position: relative;
+
+        .background{
+            width: 500px;
+            height: 100%;
+            position: fixed;
+            filter: blur(15px);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .background-black{
+            width: 500px;
+            height: 100%;
+        }
+
+        .list{
+            position: relative;
+
+            .slick-slide{
+                margin: 20px 40px;
+                color: #ffffff;
+
+                &:first-child{
+                    margin-top: 50px;
+                }
+
+                &:last-child{
+                    margin-bottom: 50px;
+                }
+
+                h2{
+                    color: #ffffff;
+                    font-size: 54px;
+                    font-weight: 900;
+                    margin: 0 15px 0 0;
+                }
+
+                h3{
+                    color: #ffffff;
+                    font-size: 24px;
+                    font-weight: 300;
+                    margin: 3px 0 3px 0;
+                    width: 340px;
+                    line-height: 28px;
+                    .truncate();
+                }
+            }
+        }
+    }
+
+    .event-tiles{
+        width: 1370px;
+        margin-left: 50px;
+        
+        h1{
+            color: #ffffff;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .event-slider{
+            margin-right: 30px;
+            width: 700px;
+
+            .img-wrapper{
+                overflow: hidden;
+                height: 430px;
+                background-size: cover;
+            }
+
+            h2{
+                font-size: 42px;
+                font-weight: 100;
+            }
+
+            h3{
+                font-size: 18px;
+                color: rgb(94, 94, 94);
+            }
+
+            .event-location-date{
+                margin-top: 20px;
+                font-size: 18px;
+            }
+
+            .slick-dots{
+                list-style: none;
+                margin: -20px 0 0 0;
+                padding: 0;
+                display: flex;
+                width: 100%;
+
+                li{
+                    width: 100%;
+                    height: 5px;
+                    margin: 0;
+
+                    button{
+                        background-color: rgba(255, 255, 255, 0.2);
+                        width: 100%;
+                        border: 1px solid #ffffff;
+                        text-indent: -9999em;
+                        height: 5px;
+                    }
+
+                    &.slick-active{
+
+                        button{
+                            background-color: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .later{
+            width: 620px;
+
+            .random-four{
+                height: 582px;
+            }
+
+            .card{
+                width: 270px;
+
+                #qrcode {
+                    width:160px;
+                    height:160px;
+                    margin-top:15px;
+                }
+
+                &:first-child,
+                &:nth-child(3){
+                    margin-right: 30px; 
+                }
+
+                .img-wrapper{
+                    overflow: hidden;
+                    height: 155px;
+                    background-size: cover;
+
+                    &.no-image{
+
+                        .text-wrapper{
+                            background: rgba(0, 0, 0, 0.7);
+                            margin-top: -20px;
+                            height: 100%;
+                        }
+
+                        h2{
+                            font-size: 60px;
+                            font-weight: 900;
+                            transform: rotate(-20deg);
+                            opacity: 0.2;
+                            color: #fff;
+                        }
+                    }
+                }
+
+                .card-padding{
+                    padding: 15px;
+
+                    h2{
+                        margin: 0;
+                        padding: 0;
+                        font-size: 19px;
+                        font-weight: 100;
+                        margin-bottom: 5px;
+                        line-height: 24px;
+                        .truncate();
+                    }
+
+                    .date-time{
+                        font-weight: 600;
+                        margin-bottom: 7px;
+                    }
+
+                    .location{
+                        font-weight: 600;
+
+                    }
+                }
+            }
+            .app-ad{
+
+                .download-text{
+                    background-image: url(../images/download.png);
+                    background-repeat: no-repeat;
+                    width: 274px;
+                    height: 154px;
+                    float: left;
+                }
+
+                .qr-codes{
+                    margin-top: 35px;
+                    width: 270px;
+                    float: left;
+
+                    > div{
+                        width: 125px;
+                    }
+
+                    .qr{
+                        width: 125px;
+                        height: 125px;
+                        padding: 5px;
+                        background: #fff;
+
+                        img{
+                            width: 115px;
+                            height: 115px;
+                        }
+                    }
+
+                    .store-img{
+                        margin-top: 15px;
+                    }
+
+                    .ios{
+                        float: left;
+
+                        .store-img{
+                            width: 122px;
+                            height: 36px;
+                            background-image: url(../images/iosStore.png);
+                            background-repeat: no-repeat;
+                        }
+                    }
+
+                    .android{
+                        float: right;
+
+                        .store-img{
+                            width: 121px;
+                            height: 36px;
+                            background-image: url(../images/googleStore.png);
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+
+                .phone{
+                    width: 309px;
+                    height: 363px;
+                    margin-top: 36px;
+                    background-image: url(../images/iphone.png);
+                    background-repeat: no-repeat;
+                    float: right;
+                    margin-right: 20px;
+
+                    .bg-img{
+                        width: 258px;
+                        height: 287px;
+                        margin-top: 76px;
+                        margin-left: 27px;
+                        border-radius: 2px;
+                        background-size: cover;
+                        background-position-x: center;
+
+                        .logo{
+                            width: 258px;
+                            height: 70px;
+                            background-size: 80%;
+                            background-position-x: center;
+                            background-position-y: center;
+                            top: 70px;
+                            position: relative;
+                            opacity: 0.9;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

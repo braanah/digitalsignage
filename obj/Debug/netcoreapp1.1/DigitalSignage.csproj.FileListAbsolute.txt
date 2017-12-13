@@ -1,0 +1,9 @@
+C:\Workspace\DigitalSignage\DigitalSignage\bin\Debug\netcoreapp1.1\DigitalSignage.deps.json
+C:\Workspace\DigitalSignage\DigitalSignage\bin\Debug\netcoreapp1.1\DigitalSignage.runtimeconfig.json
+C:\Workspace\DigitalSignage\DigitalSignage\bin\Debug\netcoreapp1.1\DigitalSignage.runtimeconfig.dev.json
+C:\Workspace\DigitalSignage\DigitalSignage\bin\Debug\netcoreapp1.1\DigitalSignage.dll
+C:\Workspace\DigitalSignage\DigitalSignage\bin\Debug\netcoreapp1.1\DigitalSignage.pdb
+C:\Workspace\DigitalSignage\DigitalSignage\obj\Debug\netcoreapp1.1\DigitalSignage.csprojResolveAssemblyReference.cache
+C:\Workspace\DigitalSignage\DigitalSignage\obj\Debug\netcoreapp1.1\DigitalSignage.AssemblyInfo.cs
+C:\Workspace\DigitalSignage\DigitalSignage\obj\Debug\netcoreapp1.1\DigitalSignage.dll
+C:\Workspace\DigitalSignage\DigitalSignage\obj\Debug\netcoreapp1.1\DigitalSignage.pdb

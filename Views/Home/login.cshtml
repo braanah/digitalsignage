@@ -1,0 +1,10 @@
+<div class="login" ng-if="!vm.hasDomain()">
+        <form class="animated flipInX">
+                <h1>Enter your portal domain</h1>
+                <input tabindex="0" autofocus type="text" name="domain" ng-model="vm.credentials.domain" ng-model-options="{updateOn: 'submit'}">
+        </form>
+</div>
+
+<div ng-if="vm.hasDomain()">
+        <dashboard></dashboard>
+</div>
