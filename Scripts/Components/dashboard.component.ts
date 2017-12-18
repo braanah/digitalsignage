@@ -71,9 +71,6 @@ module PDigitalSignage {
         }
 
         getEventList() { 
-            // if(this.isStarted == true){
-            //     // $('.today-slider').slick('unslick'); /* ONLY remove the classes and handlers added on initialize */
-            // }
             var won = (response) => {
                 this.rawEventData = [];
                 this.eventList = [];
@@ -87,60 +84,41 @@ module PDigitalSignage {
                 for(var event of this.rawEventData){
                     var b = moment.utc(today);
                     var a = moment.utc(event.startDateTimeUtc);
+                    var c = moment.utc(event.endDateTimeUtc);
                     var days = a.diff(b, 'days');
                     var hours = a.diff(b, 'hours');
+                    console.log(hours);
                     if((this.eventList.indexOf(event)) == -1){
-                        if(days > -1 && hours > -10){
+                        if(days > -1){
                             this.eventList.push(event);
                         }
                     }
                 }
                 for(var event of this.eventList){
                     var b = moment.utc(today);
-                    var a = moment.utc(event.startDateTimeUtc);
+                    var a = moment.utc(event.endDateTimeUtc);
                     var days = a.diff(b, 'days');
                     var hours = a.diff(b, 'hours');
-                    // if((this.todaysEvents.indexOf(event)) < 0){
-                        if(days > -1 && days < 1){
+                        if(days > -1 && days < 1 && hours < 5){
                             this.todaysEvents.push(event);
                         }
-                    // }
-                    // if((this.thisWeeksEvents.indexOf(event)) < 0){
                         if(days > 1 && days <  7){
                             this.thisWeeksEvents.push(event);
                         }
-                    // }
                 }
                 
                 var eventCount = this.thisWeeksEvents.length;
                 for(var i = 0; i < 4 && i < this.thisWeeksEvents.length; i++){
-                    // if((this.thisWeekRandomized.indexOf(event)) < 0)
                         this.thisWeekRandomized[i] = this.thisWeeksEvents[i];
                 }
                 if(this.todaysEvents.length > 0){
                     for(var i = 0; i < this.todaysEvents.length && i < 5; i++){
-                        // if((this.todaysEventsRandomized.indexOf(event)) < 0)
                             this.todaysEventsRandomized.push(this.todaysEvents[i]);
                     }
                 }
                 console.log(this.todaysEventsRandomized, "random");
                 console.log(this.thisWeekRandomized);
                 console.log(this.thisWeeksEvents);
-                // if(this.isStarted == false){
-                //     this.isStarted = true;
-                //     this.startCarousel();
-                // }
-                // else{
-                //     this.eventList.push({ eventName: "Test", location: "Test Location" });
-                    // $('.today-slider').slick({
-                    //     infinite: true,
-                    //     dots: true,
-                    //     autoplaySpeed: 5000,
-                    //     autoplay: true,
-                    //     arrows: false,
-                    //     vertical: false
-                    // });
-                // }
                 console.log(this.eventList);
             }
             var lost = (response) => {
@@ -152,29 +130,7 @@ module PDigitalSignage {
                 .then(won)
         }
         
-        // startCarousel(){
-        //     $(document).ready(function(){
-        //         $('.today-slider').slick({
-        //             infinite: true,
-        //             dots: true,
-        //             autoplaySpeed: 5000,
-        //             autoplay: true,
-        //             arrows: false,
-        //             vertical: false
-        //         });
-        //         $('.list-slider').not('.slick-initialized').slick({
-        //             infinite: true,
-        //             dots: false,
-        //             autoplaySpeed: 2500,
-        //             autoplay: true,
-        //             arrows: false,
-        //             slidesToShow: 10,
-        //             vertical: true
-        //         });
-        //     });
-        // }
     }
-
     angular.module("app")
     .component('dashboard', {
         controllerAs: 'vm',
