@@ -58,21 +58,17 @@ module PDigitalSignage {
                     var b = moment.utc(today);
                     var a = moment.utc(event.startDateTimeUtc);
                     var c = moment.utc(event.endDateTimeUtc);
-                    var now = b._d;
-                    var start = c._d;
                     var days = a.diff(b, 'days');
                     var startHours = a.diff(b, 'hours');
                     var endHours = c.diff(b, 'hours');
-                    console.log(event.eventName);
+                    console.log(event.eventName, days);
                         if(days < 1 && endHours > 1){
                             this.todaysEvents.push(event);
                         }
-                        if(days > 1 && days <  7){
+                        if(days >= 1 && days <=  7){
                             this.thisWeeksEvents.push(event);
                         }
                 }
-                
-                var eventCount = this.thisWeeksEvents.length;
                 for(var i = 0; i < 4 && i < this.thisWeeksEvents.length; i++){
                         this.topFourThisWeek[i] = this.thisWeeksEvents[i];
                 }
