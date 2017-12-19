@@ -58,17 +58,7 @@ module PDigitalSignage {
                 .catch((response) => {
                     console.log('failed')
                 })
-        }     
-        
-        containsObject(obj, list) {
-            var i;
-            for (i = 0; i < list.length; i++) {
-                if (list[i] === obj) {
-                    return true;
-                }
-            }
-            return false;
-        }
+        }  
 
         getEventList() { 
             var won = (response) => {
@@ -94,6 +84,11 @@ module PDigitalSignage {
                         }
                     }
                 }
+
+                this.eventList.sort(function(a, b){
+                    return a.startDateTimeUtc - b.startDateTimeUtc;
+                });
+                console.log(this.eventList);
                 for(var event of this.eventList){
                     var b = moment.utc(today);
                     var a = moment.utc(event.endDateTimeUtc);
