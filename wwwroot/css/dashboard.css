@@ -83,23 +83,23 @@ body {
 .tv .event-list .list {
   position: relative;
 }
-.tv .event-list .list .slick-slide {
+.tv .event-list .list .slide {
   margin: 20px 40px;
   color: #ffffff;
 }
-.tv .event-list .list .slick-slide:first-child {
+.tv .event-list .list .slide:first-child {
   margin-top: 50px;
 }
-.tv .event-list .list .slick-slide:last-child {
+.tv .event-list .list .slide:last-child {
   margin-bottom: 50px;
 }
-.tv .event-list .list .slick-slide h2 {
+.tv .event-list .list .slide h2 {
   color: #ffffff;
   font-size: 54px;
   font-weight: 900;
   margin: 0 15px 0 0;
 }
-.tv .event-list .list .slick-slide h3 {
+.tv .event-list .list .slide h3 {
   color: #ffffff;
   font-size: 24px;
   font-weight: 300;

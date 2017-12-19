@@ -20,16 +20,16 @@
     <div class="event-tiles pull-right">
 
         <div class="now pull-left">
-            <div ng-if="!vm.todaysEventsRandomized.length">
+            <div ng-if="!vm.topFiveToday.length">
                 <h1>Coming Up</h1>
             </div>
-            <div ng-if="!!vm.todaysEventsRandomized.length">
+            <div ng-if="!!vm.topFiveToday.length">
                 <h1>Happening Now</h1>
             </div>
             <div class="event-slider">
 
                 <ul rn-carousel rn-carousel-auto-slide class="image" style="height: 900px;">
-                    <li ng-repeat="event in vm.todaysEventsRandomized track by $index">
+                    <li ng-repeat="event in vm.topFiveToday track by $index">
                         <div class="card" >
                             <div class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
                             <div class="card-header ch-alt">
@@ -47,7 +47,7 @@
                         </div>
                     </li>
                 </ul>
-                <!-- <span ng-show="!vm.todaysEventsRandomized.length">
+                <!-- <span ng-show="!vm.topFiveToday.length">
                     No Events Today
                 </span> -->
             </div>
@@ -57,7 +57,7 @@
                 <h1>This Week</h1>
             </div>
             <div class="random-four">
-                <div ng-if="!!vm.thisWeekRandomized" class="card pull-left" ng-repeat="event in vm.thisWeekRandomized">
+                <div ng-if="!!vm.topFourThisWeek" class="card pull-left" ng-repeat="event in vm.topFourThisWeek">
                     <div ng-show="event.hasCoverImage" class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
                     <div ng-hide="event.hasCoverImage" class="img-wrapper no-image" style="background-image:url({{vm.designDetails.coverPhotoLink}})">
                         <div class="text-wrapper">
