@@ -7,14 +7,12 @@ var PDigitalSignage;
             this.dashboardData = dashboardData;
             this.rawEventData = [];
             this.eventList = [];
-            this.thisWeekRandomized = [];
-            this.todaysEventsRandomized = [];
+            this.topFourThisWeek = [];
+            this.topFiveToday = [];
             this.thisWeeksEvents = [];
             this.todaysEvents = [];
-            this.counter = 0;
             this.domainName = '';
             this.designDetails = {};
-            this.isStarted = false;
         }
         DashboardComponent.prototype.$onInit = function () {
             var _this = this;
@@ -50,72 +48,14 @@ var PDigitalSignage;
                 console.log('failed');
             });
         };
-        DashboardComponent.prototype.containsObject = function (obj, list) {
-            var i;
-            for (i = 0; i < list.length; i++) {
-                if (list[i] === obj) {
-                    return true;
-                }
-            }
-            return false;
-        };
         DashboardComponent.prototype.getEventList = function () {
-            var _this = this;
-            var won = function (response) {
-                _this.rawEventData = [];
-                _this.eventList = [];
-                _this.thisWeekRandomized = [];
-                _this.todaysEventsRandomized = [];
-                _this.thisWeeksEvents = [];
-                _this.todaysEvents = [];
-                _this.rawEventData = response.data;
-                var today = new Date();
-                for (var _i = 0, _a = _this.rawEventData; _i < _a.length; _i++) {
-                    var event = _a[_i];
-                    var b = moment.utc(today);
-                    var a = moment.utc(event.startDateTimeUtc);
-                    var days = a.diff(b, 'days');
-                    var hours = a.diff(b, 'hours');
-                    if ((_this.eventList.indexOf(event)) == -1) {
-                        if (days > -1 && hours > -10) {
-                            _this.eventList.push(event);
-                        }
-                    }
-                }
-                for (var _b = 0, _c = _this.eventList; _b < _c.length; _b++) {
-                    var event = _c[_b];
-                    var b = moment.utc(today);
-                    var a = moment.utc(event.startDateTimeUtc);
-                    var days = a.diff(b, 'days');
-                    var hours = a.diff(b, 'hours');
-                    if (days > -1 && days < 1) {
-                        _this.todaysEvents.push(event);
-                    }
-                    if (days > 1 && days < 7) {
-                        _this.thisWeeksEvents.push(event);
-                    }
-                }
-                var eventCount = _this.thisWeeksEvents.length;
-                for (var i = 0; i < 4 && i < _this.thisWeeksEvents.length; i++) {
-                    _this.thisWeekRandomized[i] = _this.thisWeeksEvents[i];
-                }
-                if (_this.todaysEvents.length > 0) {
-                    for (var i = 0; i < _this.todaysEvents.length && i < 5; i++) {
-                        _this.todaysEventsRandomized.push(_this.todaysEvents[i]);
-                    }
-                }
-                console.log(_this.todaysEventsRandomized, "random");
-                console.log(_this.thisWeekRandomized);
-                console.log(_this.thisWeeksEvents);
-                console.log(_this.eventList);
-            };
-            var lost = function (response) {
-                if (response == null) {
-                    console.log("Nothing was retrieved from API");
-                }
-            };
-            return this.dashboardData.getEvents(this.domainName)
-                .then(won);
+            this.rawEventData = this.dashboardData.rawEventData;
+            this.eventList = this.dashboardData.eventList;
+            this.topFourThisWeek = this.dashboardData.topFourThisWeek;
+            this.topFiveToday = this.dashboardData.topFiveToday;
+            this.thisWeeksEvents = this.dashboardData.thisWeeksEvents;
+            this.todaysEvents = this.dashboardData.todaysEvents;
+            return this.dashboardData.getEvents(this.domainName);
         };
         return DashboardComponent;
     }());
