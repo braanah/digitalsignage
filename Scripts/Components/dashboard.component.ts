@@ -83,15 +83,23 @@ module PDigitalSignage {
                             this.eventList.push(event);
                         }
                     }
+                    this.eventList.sort(function(a, b) {
+                        const firstEvent = a.startDateTimeUtc;
+                        const secondEvent = b.startDateTimeUtc;
+                      
+                        let comparison = 0;
+                        if (firstEvent > secondEvent) {
+                          comparison = 1;
+                        } else if (firstEvent < secondEvent) {
+                          comparison = -1;
+                        }
+                        return comparison;
+                    });
                 }
-
-                this.eventList.sort(function(a, b){
-                    return a.startDateTimeUtc - b.startDateTimeUtc;
-                });
-                console.log(this.eventList);
                 for(var event of this.eventList){
                     var b = moment.utc(today);
-                    var a = moment.utc(event.endDateTimeUtc);
+                    var a = moment.utc(event.startDateTimeUtc);
+                    var c = moment.utc(event.endDateTimeUtc);
                     var days = a.diff(b, 'days');
                     var hours = a.diff(b, 'hours');
                         if(days > -1 && days < 1 && hours < 5){
