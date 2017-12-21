@@ -62,7 +62,7 @@ module PDigitalSignage {
                     var startHours = a.diff(b, 'hours');
                     var endHours = c.diff(b, 'hours');
                     console.log(event.eventName, days);
-                        if(days < 1 && endHours > 1){
+                        if(days < 1 && endHours > 1 || startHours < 12){
                             this.todaysEvents.push(event);
                         }
                         if(days >= 1 && days <=  7){
@@ -80,7 +80,7 @@ module PDigitalSignage {
                 console.log(this.topFiveToday);
                 console.log(this.topFourThisWeek);
                 console.log(this.thisWeeksEvents);
-                console.log(this.eventList);
+                console.log(this.todaysEvents);
             }
             var lost = (response) => {
                 if(response == null){
