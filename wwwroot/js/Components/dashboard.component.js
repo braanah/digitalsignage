@@ -11,6 +11,7 @@ var PDigitalSignage;
             this.topFiveToday = [];
             this.thisWeeksEvents = [];
             this.todaysEvents = [];
+            this.isLoading = this.dashboardData.isLoading;
             this.domainName = '';
             this.designDetails = {};
         }

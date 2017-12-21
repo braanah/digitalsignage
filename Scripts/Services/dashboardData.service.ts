@@ -6,6 +6,7 @@ module PDigitalSignage {
         topFiveToday:any = [];
         thisWeeksEvents:any = [];
         todaysEvents:any = [];
+        isLoading:boolean = true;
         singleEvent;
         orgsList;
 
@@ -37,9 +38,9 @@ module PDigitalSignage {
                     var hours = c.diff(b, 'hours');
                     console.log(hours);
                     if((this.eventList.indexOf(event)) == -1){
-                        if(days > -1 && hours > -1){
+                        // if(days > -1 && hours > -1){
                             this.eventList.push(event);
-                        }
+                        // }
                     }
                     this.eventList.sort(function(a, b) {
                         const firstEvent = a.startDateTimeUtc;
@@ -77,6 +78,7 @@ module PDigitalSignage {
                             this.topFiveToday.push(this.todaysEvents[i]);
                     }
                 }
+                this.isLoading = false;
                 console.log(this.topFiveToday);
                 console.log(this.topFourThisWeek);
                 console.log(this.thisWeeksEvents);

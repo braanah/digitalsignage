@@ -10,6 +10,7 @@ var PDigitalSignage;
             this.topFiveToday = [];
             this.thisWeeksEvents = [];
             this.todaysEvents = [];
+            this.isLoading = true;
         }
         DashboardDataService.prototype.getEvents = function (domain) {
             var _this = this;
@@ -31,9 +32,7 @@ var PDigitalSignage;
                     var hours = c.diff(b, 'hours');
                     console.log(hours);
                     if ((_this.eventList.indexOf(event)) == -1) {
-                        if (days > -1 && hours > -1) {
-                            _this.eventList.push(event);
-                        }
+                        _this.eventList.push(event);
                     }
                     _this.eventList.sort(function (a, b) {
                         var firstEvent = a.startDateTimeUtc;
@@ -72,6 +71,7 @@ var PDigitalSignage;
                         _this.topFiveToday.push(_this.todaysEvents[i]);
                     }
                 }
+                _this.isLoading = false;
                 console.log(_this.topFiveToday);
                 console.log(_this.topFourThisWeek);
                 console.log(_this.thisWeeksEvents);

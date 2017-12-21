@@ -6,6 +6,7 @@ module PDigitalSignage {
         topFiveToday: any = []
         thisWeeksEvents: any = []
         todaysEvents: any = []
+        isLoading: boolean = this.dashboardData.isLoading;
         domainName = '';
         parent: any;
         designDetails: any = {};
