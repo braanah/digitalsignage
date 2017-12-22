@@ -36,7 +36,6 @@ module PDigitalSignage {
                     var c = moment.utc(event.endDateTimeUtc);
                     var days = a.diff(b, 'days');
                     var hours = c.diff(b, 'hours');
-                    console.log(hours);
                     if((this.eventList.indexOf(event)) == -1){
                         // if(days > -1 && hours > -1){
                             this.eventList.push(event);
@@ -62,7 +61,6 @@ module PDigitalSignage {
                     var days = a.diff(b, 'days');
                     var startHours = a.diff(b, 'hours');
                     var endHours = c.diff(b, 'hours');
-                    console.log(event.eventName, days);
                         if(days < 1 && endHours > 1 || startHours < 12){
                             this.todaysEvents.push(event);
                         }
@@ -79,10 +77,6 @@ module PDigitalSignage {
                     }
                 }
                 this.isLoading = false;
-                console.log(this.topFiveToday);
-                console.log(this.topFourThisWeek);
-                console.log(this.thisWeeksEvents);
-                console.log(this.todaysEvents);
             }
             var lost = (response) => {
                 if(response == null){

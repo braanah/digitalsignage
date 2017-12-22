@@ -30,7 +30,6 @@ var PDigitalSignage;
                     var c = moment.utc(event.endDateTimeUtc);
                     var days = a.diff(b, 'days');
                     var hours = c.diff(b, 'hours');
-                    console.log(hours);
                     if ((_this.eventList.indexOf(event)) == -1) {
                         _this.eventList.push(event);
                     }
@@ -55,7 +54,6 @@ var PDigitalSignage;
                     var days = a.diff(b, 'days');
                     var startHours = a.diff(b, 'hours');
                     var endHours = c.diff(b, 'hours');
-                    console.log(event.eventName, days);
                     if (days < 1 && endHours > 1 || startHours < 12) {
                         _this.todaysEvents.push(event);
                     }
@@ -72,10 +70,6 @@ var PDigitalSignage;
                     }
                 }
                 _this.isLoading = false;
-                console.log(_this.topFiveToday);
-                console.log(_this.topFourThisWeek);
-                console.log(_this.thisWeeksEvents);
-                console.log(_this.todaysEvents);
             };
             var lost = function (response) {
                 if (response == null) {

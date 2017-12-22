@@ -5,8 +5,6 @@ module DigitalSignage {
 
     function dependsOn() {
         return [
-            'ngTouch',
-            'angular-carousel',
             'angularMoment'
         ];
     }

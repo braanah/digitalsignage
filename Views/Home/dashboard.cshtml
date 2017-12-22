@@ -1,23 +1,21 @@
 ﻿<div class="tv-background" style="background-image:url({{vm.designDetails.coverPhotoLink}})"></div>
 <div class="background-black"></div>
 <div class="tv animated fadeIn">
-<div class="event-list pull-left"> 
-    <div class="background" style="background-image:url({{vm.designDetails.coverPhotoLink}})"></div>
-    <div class="background-black"></div>
-        <div class="list" ng-if="!!vm.eventList" ng-repeat="event in vm.eventList | orderBy: 'startDateTimeUtc'">
-            <div class="slide">
+    <div class="event-list pull-left"> 
+        <div class="background" style="background-image:url({{vm.designDetails.coverPhotoLink}})"></div>
+        <div class="background-black"></div>
+        <ul class="list" ng-if="!!vm.eventList">
+            <li class="slide" ng-class="{'active': $index >= 0 && $index <= 7}" ng-repeat="event in vm.eventList | orderBy: 'startDateTimeUtc'">
                 <h2 class="pull-left">{{event.startDateTimeUtc |date:'dd'}}</h2>
                 <div class="pull-left">
                     <h3>{{event.eventName}}</h3>
                     <span>{{event.location}}</span>
                 </div>
                 <div class="clearfix"></div>
-            </div>
-        </div>
-</div>
-
+            </li>
+        </ul>
+    </div>
     <div class="event-tiles pull-right">
-
         <div class="now pull-left">
             <div ng-if="!vm.topFiveToday.length">
                 <h1>Coming Up</h1>
@@ -25,31 +23,28 @@
             <div ng-if="!!vm.topFiveToday.length">
                 <h1>Happening Now</h1>
             </div>
-            <div class="event-slider">
-
-                <ul rn-carousel rn-carousel-auto-slide class="image" style="height: 900px;">
-                    <li ng-repeat="event in vm.topFiveToday track by $index">
-                        <div class="card" >
-                            <div class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
-                            <div class="card-header ch-alt">
-                                <h2 style="color: {{vm.designDetails.backgroundColor}}">{{event.eventName}}</h2>
-                                <h3>{{event.organizationName}}</h3>
+            <ul id="slider-left">
+                <li class="slide" ng-class="{'active': $index == 0}" ng-repeat="event in vm.topFiveToday track by $index">
+                    <div class="card">
+                        <div class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
+                        <div class="card-header ch-alt">
+                            <h2 style="color: {{vm.designDetails.backgroundColor}}">{{event.eventName}}</h2>
+                            <h3>{{event.organizationName}}</h3>
+                        </div>
+                        <div class="card-body card-padding">
+                            <div class="event-description">
+                                {{event.description}}                             
                             </div>
-                            <div class="card-body card-padding">
-                                <div class="event-description">
-                                    {{event.description}}                             
-                                </div>
-                                <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
-                                    <i class="md md-location-on"></i> {{event.location}} ending at {{event.endDateTimeUtc |date: 'h:mm a'}}
-                                </div>
+                            <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
+                                <i class="md md-location-on"></i> {{event.location}} ending at {{event.endDateTimeUtc |date: 'h:mm a'}}
                             </div>
                         </div>
-                    </li>
-                </ul>
-                <!-- <span ng-show="!vm.topFiveToday.length">
-                    No Events Today
-                </span> -->
-            </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- <span ng-show="!vm.topFiveToday.length">
+                No Events Today
+            </span> -->
         </div>
         <div class="later pull-left">
             <div>
