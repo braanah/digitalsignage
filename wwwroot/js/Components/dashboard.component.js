@@ -29,9 +29,11 @@ var PDigitalSignage;
                 _this.makeCode(aqrcode, _this.designDetails.androidStorePageUrl);
                 _this.getEventList();
                 _this.initSliderLeft();
-                _this.initSliderUp();
+                if (_this.eventList.length > 8) {
+                    _this.initSliderUp();
+                }
                 _this.refresh();
-            }, 5000);
+            }, 2000);
         };
         DashboardComponent.prototype.makeCode = function (item, url) {
             item.makeCode(url);

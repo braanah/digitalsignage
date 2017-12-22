@@ -37,9 +37,9 @@ module PDigitalSignage {
                     var days = a.diff(b, 'days');
                     var hours = c.diff(b, 'hours');
                     if((this.eventList.indexOf(event)) == -1){
-                        // if(days > -1 && hours > -1){
+                        if(days > -1 && hours > -1){
                             this.eventList.push(event);
-                        // }
+                        }
                     }
                     this.eventList.sort(function(a, b) {
                         const firstEvent = a.startDateTimeUtc;
@@ -76,7 +76,6 @@ module PDigitalSignage {
                             this.topFiveToday.push(this.todaysEvents[i]);
                     }
                 }
-                this.isLoading = false;
             }
             var lost = (response) => {
                 if(response == null){

@@ -38,9 +38,11 @@ module PDigitalSignage {
                 this.makeCode(aqrcode, this.designDetails.androidStorePageUrl);
                 this.getEventList();
                 this.initSliderLeft();
-                this.initSliderUp();
+                if(this.eventList.length > 8){
+                    this.initSliderUp();
+                }
                 this.refresh();
-            }, 5000);
+            }, 2000);
         }
 
         makeCode(item:any, url:string){
