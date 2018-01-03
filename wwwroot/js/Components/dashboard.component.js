@@ -33,7 +33,7 @@ var PDigitalSignage;
                     _this.initSliderUp();
                 }
                 _this.refresh();
-            }, 2000);
+            }, 1000);
         };
         DashboardComponent.prototype.makeCode = function (item, url) {
             item.makeCode(url);

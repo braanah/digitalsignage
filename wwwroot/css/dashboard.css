@@ -158,6 +158,31 @@ body {
   margin-top: 40px;
   margin-bottom: 20px;
 }
+.tv .event-tiles .not-slider {
+  margin: 0;
+  padding: 0;
+  margin-right: 30px;
+  position: relative;
+  width: 700px;
+  overflow: hidden;
+}
+.tv .event-tiles .not-slider h2 {
+  font-size: 42px;
+  font-weight: 100;
+}
+.tv .event-tiles .not-slider h3 {
+  font-size: 18px;
+  color: #5e5e5e;
+}
+.tv .event-tiles .not-slider .event-location-date {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.tv .event-tiles .not-slider .img-wrapper {
+  overflow: hidden;
+  height: 430px;
+  background-size: cover;
+}
 .tv .event-tiles ul#slider-left {
   margin: 0;
   padding: 0;

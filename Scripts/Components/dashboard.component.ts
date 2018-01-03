@@ -42,7 +42,7 @@ module PDigitalSignage {
                     this.initSliderUp();
                 }
                 this.refresh();
-            }, 2000);
+            }, 1000);
         }
 
         makeCode(item:any, url:string){
