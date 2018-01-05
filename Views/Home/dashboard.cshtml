@@ -30,7 +30,7 @@
                             {{vm.eventList[0].description}}                             
                         </div>
                         <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
-                            <i class="md md-location-on"></i> {{vm.eventList[0].location}} ending at {{vm.eventList[0].endDateTimeUtc |date: 'h:mm a'}}
+                            <i class="md md-location-on"></i> {{vm.eventList[0].location}} on {{vm.eventList[0].startDateTimeUtc| date: 'EEE MMM dd, yyyy'}}
                         </div>
                     </div>
                 </div>
