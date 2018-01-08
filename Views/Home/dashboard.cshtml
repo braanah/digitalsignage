@@ -86,10 +86,10 @@
             </div>
             <div ng-if="!vm.topFourThisWeek || vm.topFourThisWeek.length < 3">
                 <div>
-                    <h1>This Month</h1>
+                    <h1>Later</h1>
                 </div>
                 <div class="random-four">
-                    <div class="card pull-left" ng-repeat="event in vm.eventList | limitTo: (1 - 4)">
+                    <div class="card pull-left" ng-repeat="event in vm.eventList | limitTo: 4 : 1">
                         <div ng-show="event.hasCoverImage" class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
                         <div ng-hide="event.hasCoverImage" class="img-wrapper no-image" style="background-image:url({{vm.designDetails.coverPhotoLink}})">
                             <div class="text-wrapper">
