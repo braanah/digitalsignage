@@ -37,7 +37,9 @@ module PDigitalSignage {
                 this.makeCode(iqrcode, this.designDetails.iosStorePageUrl);
                 this.makeCode(aqrcode, this.designDetails.androidStorePageUrl);
                 this.getEventList();
-                this.initSliderLeft();
+                if(this.topFiveToday.length >= 2){
+                    this.initSliderLeft();
+                }
                 if(this.eventList.length > 8){
                     this.initSliderUp();
                 }

@@ -28,7 +28,9 @@ var PDigitalSignage;
                 _this.makeCode(iqrcode, _this.designDetails.iosStorePageUrl);
                 _this.makeCode(aqrcode, _this.designDetails.androidStorePageUrl);
                 _this.getEventList();
-                _this.initSliderLeft();
+                if (_this.topFiveToday.length >= 2) {
+                    _this.initSliderLeft();
+                }
                 if (_this.eventList.length > 8) {
                     _this.initSliderUp();
                 }

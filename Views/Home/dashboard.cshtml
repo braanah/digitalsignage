@@ -35,28 +35,46 @@
                     </div>
                 </div>
             </div>
-            <div ng-if="!!vm.topFiveToday.length">
-                <h1>Happening Now</h1>
-            </div>
-            <ul id="slider-left">
-                <li class="slide" ng-class="{'active': $index == 0}" ng-repeat="event in vm.topFiveToday track by $index">
-                    <div class="card">
-                        <div class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
-                        <div class="card-header ch-alt">
-                            <h2 style="color: {{vm.designDetails.backgroundColor}}">{{event.eventName}}</h2>
-                            <h3>{{event.organizationName}}</h3>
+            <div ng-if="!!vm.topFiveToday.length && vm.topFiveToday.length >= 2">
+                <h1>Happening Today</h1>
+                <ul id="slider-left">
+                    <li class="slide" ng-class="{'active': $index == 0}" ng-repeat="event in vm.topFiveToday track by $index">
+                        <div class="card">
+                            <div class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{event.photoUri}})"></div>
+                            <div class="card-header ch-alt">
+                                <h2 style="color: {{vm.designDetails.backgroundColor}}">{{event.eventName}}</h2>
+                                <h3>{{event.organizationName}}</h3>
+                            </div>
+                            <div class="card-body card-padding">
+                                <div class="event-description">
+                                    {{event.description}}                             
+                                </div>
+                                <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
+                                    <i class="md md-location-on"></i> {{event.location}} from {{event.startDateTimeUtc |date: 'h:mm a'}} to {{event.endDateTimeUtc |date: 'h:mm a'}}
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body card-padding">
-                            <div class="event-description">
-                                {{event.description}}                             
-                            </div>
-                            <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
-                                <i class="md md-location-on"></i> {{event.location}} ending at {{event.endDateTimeUtc |date: 'h:mm a'}}
-                            </div>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="!!vm.topFiveToday.length && vm.topFiveToday.length < 2">
+                <h1>Happening Today</h1>
+                <div class="card not-slider">
+                    <div class="img-wrapper" style="background-image: url(https://cdn.presence.io/eventphotos/{{vm.topFiveToday[0].photoUri}})"></div>
+                    <div class="card-header ch-alt">
+                        <h2 style="color: {{vm.designDetails.backgroundColor}}">{{vm.topFiveToday[0].eventName}}</h2>
+                        <h3>{{vm.topFiveToday[0].organizationName}}</h3>
+                    </div>
+                    <div class="card-body card-padding">
+                        <div class="event-description">
+                            {{vm.topFiveToday[0].description}}                             
+                        </div>
+                        <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
+                            <i class="md md-location-on"></i> {{vm.topFiveToday[0].location}} from {{vm.topFiveToday[0].startDateTimeUtc |date: 'h:mm a'}} to {{vm.topFiveToday[0].endDateTimeUtc |date: 'h:mm a'}}
                         </div>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
         <div class="later pull-left">
             <div ng-if="!!vm.topFourThisWeek && vm.topFourThisWeek.length > 3">
