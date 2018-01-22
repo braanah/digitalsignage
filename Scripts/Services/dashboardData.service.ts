@@ -38,7 +38,7 @@ module PDigitalSignage {
                     var start = a.diff(b, 'hours');
                     var hours = c.diff(b, 'hours');
                     if((this.eventList.indexOf(event)) == -1){
-                        if(days > -1 && hours > -1 && start > -7){
+                        if(hours > -1 || start > -7){
                             this.eventList.push(event);
                         }
                     }
@@ -62,7 +62,7 @@ module PDigitalSignage {
                     var days = a.diff(b, 'days');
                     var startHours = a.diff(b, 'hours');
                     var endHours = c.diff(b, 'hours');
-                        if(days < 1 && startHours < 10 && startHours > -5){
+                        if(days < 1 && startHours < 10 && startHours > -5 || endHours < 5){
                             this.todaysEvents.push(event);
                         }
                         if(days >= 1 && days <=  7){

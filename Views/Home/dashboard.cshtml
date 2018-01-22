@@ -15,8 +15,11 @@
             </li>
         </ul>
     </div>
+
+    <!-- Slider -->
     <div class="event-tiles pull-right">
         <div class="now pull-left">
+            <!-- if there are no events today, display first event -->
             <div ng-if="!vm.topFiveToday.length">
                 <h1>Coming Up</h1>
                 <div class="card not-slider">
@@ -35,6 +38,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- if there are multiple events today; slider intitated -->
             <div ng-if="!!vm.topFiveToday.length && vm.topFiveToday.length >= 2">
                 <h1>Happening Today</h1>
                 <ul id="slider-left">
@@ -50,13 +55,15 @@
                                     {{event.description}}                             
                                 </div>
                                 <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
-                                    <i class="md md-location-on"></i> {{event.location}} from {{event.startDateTimeUtc |date: 'h:mm a'}} to {{event.endDateTimeUtc |date: 'h:mm a'}}
+                                    <i class="md md-location-on"></i> {{event.location}} from {{event.startDateTimeUtc |date: 'shortTime'}} to {{event.endDateTimeUtc |date: 'shortTime'}}
                                 </div>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
+
+            <!-- if there is only one event today; slider not initiated -->
             <div ng-if="!!vm.topFiveToday.length && vm.topFiveToday.length < 2">
                 <h1>Happening Today</h1>
                 <div class="card not-slider">
@@ -76,7 +83,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- This Week/ Coming Up Tiles -->
         <div class="later pull-left">
+            <!-- if there are more than three events happening this week -->
             <div ng-if="!!vm.topFourThisWeek && vm.topFourThisWeek.length >= 3">
                 <div>
                     <h1>This Week</h1>
@@ -102,6 +112,8 @@
                     <div class="clearfix"></div>
                 </div>   
             </div>
+
+            <!-- if there are less than three events hapening this week; display first four events -->
             <div ng-if="!vm.topFourThisWeek || vm.topFourThisWeek.length < 3">
                 <div>
                     <h1>Later</h1>
