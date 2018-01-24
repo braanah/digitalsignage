@@ -1,20 +1,3 @@
-Skip to content
-Features
-Business
-Explore
-Marketplace
-Pricing
-This repository
-Search
-Sign in or Sign up
- Watch 527  Star 12,455  Fork 10,454 DefinitelyTyped/DefinitelyTyped
- Code  Issues 1,698  Pull requests 171  Projects 1  Wiki Insights 
-Branch: master Find file Copy pathDefinitelyTyped/types/jquery/index.d.ts
-b8ea87c  7 days ago
-@sandersn sandersn Strict function variance fixes round 1
-9 contributors @leonard-thieu @Kovensky @johnnyreilly @andy-ms @SaschaNaz @vclav @sandersn @maxlk @aozgaa
-RawBlameHistory     
-8005 lines (7832 sloc)  362 KB
 // Type definitions for jquery 3.2
 // Project: https://jquery.com
 // Definitions by: Leonard Thieu <https://github.com/leonard-thieu>
@@ -8019,15 +8002,3 @@ interface JQueryEasingFunctions {
 }
 
 // endregion
-© 2017 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About

@@ -80,12 +80,12 @@ var PDigitalSignage;
             return this.$http.get("https://api.presence.io/" + domain + "/v1/events")
                 .then(won);
         };
+        DashboardDataService.$inject = [
+            '$http',
+            '$interval'
+        ];
         return DashboardDataService;
     }());
-    DashboardDataService.$inject = [
-        '$http',
-        '$interval'
-    ];
     PDigitalSignage.DashboardDataService = DashboardDataService;
     angular.module("app")
         .service('dashboardDataService', DashboardDataService);
