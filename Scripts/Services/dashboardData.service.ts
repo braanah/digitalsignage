@@ -36,25 +36,26 @@ module PDigitalSignage {
                     var c = moment.utc(event.endDateTimeUtc);
                     var days = a.diff(b, 'days');
                     var start = a.diff(b, 'hours');
-                    var hours = c.diff(b, 'hours');
+                    var end = c.diff(b, 'hours');
+                    console.log(end)
                     if((this.eventList.indexOf(event)) == -1){
-                        if(hours > -1 || start > -7){
+                        if(end > -2){
                             this.eventList.push(event);
                         }
                     }
-                    this.eventList.sort(function(a, b) {
-                        const firstEvent = a.startDateTimeUtc;
-                        const secondEvent = b.startDateTimeUtc;
-                      
-                        let comparison = 0;
-                        if (firstEvent > secondEvent) {
-                          comparison = 1;
-                        } else if (firstEvent < secondEvent) {
-                          comparison = -1;
-                        }
-                        return comparison;
-                    });
                 }
+                this.eventList.sort(function(a, b) {
+                    const firstEvent = a.startDateTimeUtc;
+                    const secondEvent = b.startDateTimeUtc;
+                    
+                    let comparison = 0;
+                    if (firstEvent > secondEvent) {
+                        comparison = 1;
+                    } else if (firstEvent < secondEvent) {
+                        comparison = -1;
+                    }
+                    return comparison;
+                });
                 for(var event of this.eventList){
                     var b = moment.utc(today);
                     var a = moment.utc(event.startDateTimeUtc);

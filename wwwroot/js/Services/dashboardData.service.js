@@ -30,25 +30,26 @@ var PDigitalSignage;
                     var c = moment.utc(event.endDateTimeUtc);
                     var days = a.diff(b, 'days');
                     var start = a.diff(b, 'hours');
-                    var hours = c.diff(b, 'hours');
+                    var end = c.diff(b, 'hours');
+                    console.log(end);
                     if ((_this.eventList.indexOf(event)) == -1) {
-                        if (hours > -1 || start > -7) {
+                        if (end > -2) {
                             _this.eventList.push(event);
                         }
                     }
-                    _this.eventList.sort(function (a, b) {
-                        var firstEvent = a.startDateTimeUtc;
-                        var secondEvent = b.startDateTimeUtc;
-                        var comparison = 0;
-                        if (firstEvent > secondEvent) {
-                            comparison = 1;
-                        }
-                        else if (firstEvent < secondEvent) {
-                            comparison = -1;
-                        }
-                        return comparison;
-                    });
                 }
+                _this.eventList.sort(function (a, b) {
+                    var firstEvent = a.startDateTimeUtc;
+                    var secondEvent = b.startDateTimeUtc;
+                    var comparison = 0;
+                    if (firstEvent > secondEvent) {
+                        comparison = 1;
+                    }
+                    else if (firstEvent < secondEvent) {
+                        comparison = -1;
+                    }
+                    return comparison;
+                });
                 for (var _b = 0, _c = _this.eventList; _b < _c.length; _b++) {
                     var event = _c[_b];
                     var b = moment.utc(today);
