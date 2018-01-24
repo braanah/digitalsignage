@@ -16,8 +16,8 @@ module PDigitalSignage {
 
         
         $onInit() {
-            if(sessionStorage.domain){
-                this.credentials.domain = sessionStorage.domain;
+            if(localStorage.domain){
+                this.credentials.domain = localStorage.domain;
             }
         }
 

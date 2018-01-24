@@ -8,8 +8,8 @@ var PDigitalSignage;
             };
         }
         LoginComponent.prototype.$onInit = function () {
-            if (sessionStorage.domain) {
-                this.credentials.domain = sessionStorage.domain;
+            if (localStorage.domain) {
+                this.credentials.domain = localStorage.domain;
             }
         };
         LoginComponent.prototype.getDomain = function (loginInfo) {

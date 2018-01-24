@@ -11,14 +11,13 @@ var PDigitalSignage;
             this.topFiveToday = [];
             this.thisWeeksEvents = [];
             this.todaysEvents = [];
-            this.isLoading = this.dashboardData.isLoading;
             this.domainName = '';
             this.designDetails = {};
         }
         DashboardComponent.prototype.$onInit = function () {
             var _this = this;
-            sessionStorage.setItem('domain', this.parent.credentials.domain);
-            console.log(sessionStorage.domain);
+            localStorage.setItem('domain', this.parent.credentials.domain);
+            console.log(localStorage.domain);
             this.domainName = this.parent.credentials.domain;
             this.getEventList();
             this.getPortalDesign(this.domainName);

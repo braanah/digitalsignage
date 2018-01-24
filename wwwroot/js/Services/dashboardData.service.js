@@ -10,7 +10,6 @@ var PDigitalSignage;
             this.topFiveToday = [];
             this.thisWeeksEvents = [];
             this.todaysEvents = [];
-            this.isLoading = true;
         }
         DashboardDataService.prototype.getEvents = function (domain) {
             var _this = this;

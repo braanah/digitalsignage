@@ -6,7 +6,6 @@ module PDigitalSignage {
         topFiveToday:any = [];
         thisWeeksEvents:any = [];
         todaysEvents:any = [];
-        isLoading:boolean = true;
         singleEvent;
         orgsList;
 

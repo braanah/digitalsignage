@@ -6,7 +6,6 @@ module PDigitalSignage {
         topFiveToday: any = []
         thisWeeksEvents: any = []
         todaysEvents: any = []
-        isLoading: boolean = this.dashboardData.isLoading;
         domainName = '';
         parent: any;
         designDetails: any = {};
@@ -26,8 +25,8 @@ module PDigitalSignage {
         ) { }
 
         $onInit() {
-            sessionStorage.setItem('domain', this.parent.credentials.domain);
-            console.log(sessionStorage.domain)
+            localStorage.setItem('domain', this.parent.credentials.domain);
+            console.log(localStorage.domain)
             this.domainName = this.parent.credentials.domain;
             this.getEventList();
             this.getPortalDesign(this.domainName);
