@@ -30,9 +30,8 @@ var PDigitalSignage;
                     var days = a.diff(b, 'days');
                     var start = a.diff(b, 'hours');
                     var end = c.diff(b, 'hours');
-                    console.log(end);
                     if ((_this.eventList.indexOf(event)) == -1) {
-                        if (end > -2) {
+                        if (end > -1) {
                             _this.eventList.push(event);
                         }
                     }
