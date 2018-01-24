@@ -89,7 +89,7 @@
         <!-- This Week/ Coming Up Tiles -->
         <div class="later pull-left">
             <!-- if there are more than three events happening this week -->
-            <div ng-if="!!vm.topFourThisWeek && vm.topFourThisWeek.length >= 3 && vm.eventList.length">
+            <div ng-if="!!vm.topFourThisWeek && vm.topFourThisWeek.length >= 2 && vm.eventList.length">
                 <div>
                     <h1>This Week</h1>
                 </div>
@@ -116,7 +116,7 @@
             </div>
 
             <!-- if there are less than three events hapening this week; display first four events -->
-            <div ng-if="!vm.topFourThisWeek || vm.topFourThisWeek.length < 3 && vm.eventList.length">
+            <div ng-if="!vm.topFourThisWeek || vm.topFourThisWeek.length < 2 && vm.eventList.length">
                 <div>
                     <h1>Later</h1>
                 </div>
