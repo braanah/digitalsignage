@@ -34,9 +34,6 @@ var PDigitalSignage;
                 if (_this.topFiveToday.length >= 2) {
                     _this.initSliderLeft();
                 }
-                if (_this.eventList.length > 8) {
-                    _this.initSliderUp();
-                }
                 _this.refresh();
             }, 1000);
         };
@@ -67,6 +64,9 @@ var PDigitalSignage;
             this.thisWeeksEvents = this.dashboardData.thisWeeksEvents;
             this.todaysEvents = this.dashboardData.todaysEvents;
             this.seconds = this.dashboardData.eventList.length * 3000;
+            if (this.eventList.length > 8) {
+                this.initSliderUp();
+            }
             console.log(this.dashboardData.eventList.length, this.seconds);
             return this.dashboardData.getEvents(this.domainName);
         };
