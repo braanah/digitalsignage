@@ -24,8 +24,12 @@ var PDigitalSignage;
             setTimeout(function () {
                 var iqrcode = new QRCode("qrcode-ios");
                 var aqrcode = new QRCode("qrcode-and");
-                _this.makeCode(iqrcode, _this.designDetails.iosStorePageUrl);
-                _this.makeCode(aqrcode, _this.designDetails.androidStorePageUrl);
+                if (!!_this.designDetails.iosStorePageUrl) {
+                    _this.makeCode(iqrcode, _this.designDetails.iosStorePageUrl);
+                }
+                if (!!_this.designDetails.androidStorePageUrl) {
+                    _this.makeCode(aqrcode, _this.designDetails.androidStorePageUrl);
+                }
                 _this.getEventList();
                 if (_this.topFiveToday.length >= 2) {
                     _this.initSliderLeft();

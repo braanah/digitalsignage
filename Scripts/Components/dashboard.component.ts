@@ -33,8 +33,12 @@ module PDigitalSignage {
             setTimeout(() => {
                 var iqrcode = new QRCode("qrcode-ios");
                 var aqrcode = new QRCode("qrcode-and");
-                this.makeCode(iqrcode, this.designDetails.iosStorePageUrl);
-                this.makeCode(aqrcode, this.designDetails.androidStorePageUrl);
+                if(!!this.designDetails.iosStorePageUrl){
+                    this.makeCode(iqrcode, this.designDetails.iosStorePageUrl);
+                }
+                if(!!this.designDetails.androidStorePageUrl){
+                    this.makeCode(aqrcode, this.designDetails.androidStorePageUrl);
+                }
                 this.getEventList();
                 if(this.topFiveToday.length >= 2){
                     this.initSliderLeft();

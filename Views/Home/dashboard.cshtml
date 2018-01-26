@@ -75,7 +75,7 @@
                         <h3>{{vm.topFiveToday[0].organizationName}}</h3>
                     </div>
                     <div class="card-body card-padding">
-                        <div class="event-description" ng-bind-html="{{vm.topFiveToday[0].description}}">
+                        <div class="event-description" ng-bind-html="vm.topFiveToday[0].description">
                             <!-- {{vm.topFiveToday[0].description}}                              -->
                         </div>
                         <div class="event-location-date" style="color: {{vm.designDetails.backgroundColor}}">
@@ -150,13 +150,13 @@
                         <div class="logo" style="background-image:url({{vm.designDetails.logoPhotoLink}}); background-color: {{vm.designDetails.navBarColor}};"></div>
                     </div>
                 </div>
-                <div class="qr-codes" ng-if="!!vm.designDetails.iosStorePageUrl || !!vm.designDetails.androidStorePageUrl">
-                    <div class="ios">
-                        <div class="qr"><div id="qrcode-ios"  ng-if="!!vm.designDetails.iosStorePageUrl"></div></div>
+                <div class="qr-codes">
+                    <div class="ios" ng-show="vm.designDetails.iosStorePageUrl">
+                        <div class="qr"><div id="qrcode-ios"></div></div>
                         <div class="store-img"></div>
                     </div>
-                    <div class="android">
-                        <div class="qr"><div id="qrcode-and" ng-if="!!vm.designDetails.androidStorePageUrl"></div></div>
+                    <div class="android" ng-show="vm.designDetails.androidStorePageUrl">
+                        <div class="qr"><div id="qrcode-and"></div></div>
                         <div class="store-img"></div>                        
                     </div>
                     <div class="clearfix"></div>
