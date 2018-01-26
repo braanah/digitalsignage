@@ -40,9 +40,6 @@ module PDigitalSignage {
                     this.makeCode(aqrcode, this.designDetails.androidStorePageUrl);
                 }
                 this.getEventList();
-                if(this.topFiveToday.length >= 2){
-                    this.initSliderLeft();
-                }
                 this.refresh();
             }, 1000);
         }
@@ -75,6 +72,9 @@ module PDigitalSignage {
             this.thisWeeksEvents = this.dashboardData.thisWeeksEvents;
             this.todaysEvents = this.dashboardData.todaysEvents;
             this.seconds = this.dashboardData.eventList.length * 3000;
+            if(this.topFiveToday.length >= 2){
+                this.initSliderLeft();
+            }
             if(this.eventList.length > 8){
                 this.initSliderUp();
             }
