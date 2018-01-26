@@ -1,9 +1,10 @@
 var PDigitalSignage;
 (function (PDigitalSignage) {
     var DashboardDataService = (function () {
-        function DashboardDataService($http, $interval) {
+        function DashboardDataService($http, $interval, $sce) {
             this.$http = $http;
             this.$interval = $interval;
+            this.$sce = $sce;
             this.eventList = [];
             this.rawEventData = [];
             this.topFourThisWeek = [];
@@ -50,6 +51,9 @@ var PDigitalSignage;
                 });
                 for (var _b = 0, _c = _this.eventList; _b < _c.length; _b++) {
                     var event = _c[_b];
+                    if (!!event.description) {
+                        event.description = _this.$sce.trustAsHtml(_this.truncateHtml(event.description, '<a><br><span><p>'));
+                    }
                     var b = moment.utc(today);
                     var a = moment.utc(event.startDateTimeUtc);
                     var c = moment.utc(event.endDateTimeUtc);
@@ -80,11 +84,23 @@ var PDigitalSignage;
             return this.$http.get("https://api.presence.io/" + domain + "/v1/events")
                 .then(won);
         };
+        DashboardDataService.prototype.truncateHtml = function (input, allowed) {
+            allowed = (((allowed || '') + '')
+                .toLowerCase()
+                .match(/<[a-z][a-z0-9]*>/g) || [])
+                .join('');
+            var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+            return input.replace(commentsAndPhpTags, '')
+                .replace(tags, function ($0, $1) {
+                return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+            });
+        };
         return DashboardDataService;
     }());
     DashboardDataService.$inject = [
         '$http',
-        '$interval'
+        '$interval',
+        '$sce'
     ];
     PDigitalSignage.DashboardDataService = DashboardDataService;
     angular.module("app")

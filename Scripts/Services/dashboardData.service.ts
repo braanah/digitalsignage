@@ -11,12 +11,14 @@ module PDigitalSignage {
 
         static $inject = [
             '$http',
-            '$interval'
+            '$interval',
+            '$sce'
         ];
 
         constructor(
             private $http,
-            private $interval
+            private $interval,
+            private $sce
         ) { }
         
         getEvents(domain){
@@ -55,6 +57,9 @@ module PDigitalSignage {
                     return comparison;
                 });
                 for(var event of this.eventList){
+                    if(!!event.description){
+                        event.description = this.$sce.trustAsHtml(this.truncateHtml(event.description, '<a><br><span><p>'));
+                    }
                     var b = moment.utc(today);
                     var a = moment.utc(event.startDateTimeUtc);
                     var c = moment.utc(event.endDateTimeUtc);
@@ -84,6 +89,21 @@ module PDigitalSignage {
             }
             return this.$http.get(`https://api.presence.io/${domain}/v1/events`)
             .then(won)
+        }
+
+        truncateHtml(input, allowed) {
+            allowed = (((allowed || '') + '')
+            .toLowerCase()
+            .match(/<[a-z][a-z0-9]*>/g) || [])
+            .join(''); // making sure the allowed arg is a string containing only tags in lowercase (<a><b><c>)
+            var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+                commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+
+
+            return input.replace(commentsAndPhpTags, '')
+                .replace(tags, function($0, $1) {
+                    return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+                });
         }
     }
     angular.module("app")
