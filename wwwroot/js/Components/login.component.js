@@ -18,12 +18,12 @@ var PDigitalSignage;
         LoginComponent.prototype.hasDomain = function () {
             return !!this.credentials.domain;
         };
-        LoginComponent.$inject = [
-            '$http',
-            '$scope'
-        ];
         return LoginComponent;
     }());
+    LoginComponent.$inject = [
+        '$http',
+        '$scope'
+    ];
     PDigitalSignage.LoginComponent = LoginComponent;
     angular.module("app")
         .component('login', {

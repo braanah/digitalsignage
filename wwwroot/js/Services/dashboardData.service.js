@@ -31,7 +31,7 @@ var PDigitalSignage;
                     var start = a.diff(b, 'hours');
                     var end = c.diff(b, 'hours');
                     if ((_this.eventList.indexOf(event)) == -1) {
-                        if (end > -1) {
+                        if (end > -1 && days < 31) {
                             _this.eventList.push(event);
                         }
                     }
@@ -59,7 +59,7 @@ var PDigitalSignage;
                     if (days < 1 && startHours < 10 && startHours > -5 || endHours < 5) {
                         _this.todaysEvents.push(event);
                     }
-                    if (days >= 1 && days <= 7) {
+                    if (startHours > 12 && days <= 7) {
                         _this.thisWeeksEvents.push(event);
                     }
                 }
@@ -80,12 +80,12 @@ var PDigitalSignage;
             return this.$http.get("https://api.presence.io/" + domain + "/v1/events")
                 .then(won);
         };
-        DashboardDataService.$inject = [
-            '$http',
-            '$interval'
-        ];
         return DashboardDataService;
     }());
+    DashboardDataService.$inject = [
+        '$http',
+        '$interval'
+    ];
     PDigitalSignage.DashboardDataService = DashboardDataService;
     angular.module("app")
         .service('dashboardDataService', DashboardDataService);

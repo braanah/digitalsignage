@@ -105,13 +105,13 @@ var PDigitalSignage;
                 }, 3000);
             }, 5000);
         };
-        DashboardComponent.$inject = [
-            '$http',
-            '$interval',
-            'dashboardDataService'
-        ];
         return DashboardComponent;
     }());
+    DashboardComponent.$inject = [
+        '$http',
+        '$interval',
+        'dashboardDataService'
+    ];
     PDigitalSignage.DashboardComponent = DashboardComponent;
     angular.module("app")
         .component('dashboard', {

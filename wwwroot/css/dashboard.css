@@ -344,6 +344,9 @@ body {
 }
 .tv .event-tiles .later .card .card-padding .location {
   font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .tv .event-tiles .later .app-ad .download-text {
   background-image: url(../images/download.png);

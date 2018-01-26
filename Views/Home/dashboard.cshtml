@@ -7,7 +7,7 @@
         <div class="background" style="background-image:url({{vm.designDetails.coverPhotoLink}})"></div>
         <div class="background-black"></div>
         <ul class="list" ng-if="!!vm.eventList">
-            <li class="slide" ng-class="{'active': $index >= 0 && $index <= 7}" ng-repeat="event in vm.eventList | orderBy: 'startDateTimeUtc'">
+            <li class="slide" ng-class="{'active': $index >= 0 && $index <= 8}" ng-repeat="event in vm.eventList | orderBy: 'startDateTimeUtc'">
                 <h2 class="pull-left">{{event.startDateTimeUtc |date:'dd'}}</h2>
                 <div class="pull-left">
                     <h3>{{event.eventName}}</h3>
@@ -150,13 +150,13 @@
                         <div class="logo" style="background-image:url({{vm.designDetails.logoPhotoLink}}); background-color: {{vm.designDetails.navBarColor}};"></div>
                     </div>
                 </div>
-                <div class="qr-codes">
+                <div class="qr-codes" ng-if="!!vm.designDetails.iosStorePageUrl || !!vm.designDetails.androidStorePageUrl">
                     <div class="ios">
-                        <div class="qr"><div id="qrcode-ios"></div></div>
+                        <div class="qr"><div id="qrcode-ios"  ng-if="!!vm.designDetails.iosStorePageUrl"></div></div>
                         <div class="store-img"></div>
                     </div>
                     <div class="android">
-                        <div class="qr"><div id="qrcode-and"></div></div>
+                        <div class="qr"><div id="qrcode-and" ng-if="!!vm.designDetails.androidStorePageUrl"></div></div>
                         <div class="store-img"></div>                        
                     </div>
                     <div class="clearfix"></div>
