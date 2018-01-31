@@ -2,7 +2,8 @@ module PDigitalSignage {
     export class LoginComponent {
         parent: any;
         credentials = {
-            domain: ''
+            domain: '',
+            ready: false
         };
 
         static $inject = [
@@ -19,14 +20,17 @@ module PDigitalSignage {
             if(localStorage.domain){
                 this.credentials.domain = localStorage.domain;
             }
+            if(localStorage.ready){
+                this.credentials.ready = localStorage.ready;
+            }
         }
 
         getDomain(loginInfo){
             this.credentials.domain = loginInfo.domain;
         }
 
-        hasDomain(){
-            return !!this.credentials.domain;
+        knowsDomain(){
+            this.credentials.ready = true;
         }
   
     }

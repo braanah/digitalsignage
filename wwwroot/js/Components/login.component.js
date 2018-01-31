@@ -4,19 +4,23 @@ var PDigitalSignage;
         function LoginComponent($http) {
             this.$http = $http;
             this.credentials = {
-                domain: ''
+                domain: '',
+                ready: false
             };
         }
         LoginComponent.prototype.$onInit = function () {
             if (localStorage.domain) {
                 this.credentials.domain = localStorage.domain;
             }
+            if (localStorage.ready) {
+                this.credentials.ready = localStorage.ready;
+            }
         };
         LoginComponent.prototype.getDomain = function (loginInfo) {
             this.credentials.domain = loginInfo.domain;
         };
-        LoginComponent.prototype.hasDomain = function () {
-            return !!this.credentials.domain;
+        LoginComponent.prototype.knowsDomain = function () {
+            this.credentials.ready = true;
         };
         return LoginComponent;
     }());
